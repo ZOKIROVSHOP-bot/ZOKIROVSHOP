@@ -1,158 +1,246 @@
 
+
+ 
+ 
 <!DOCTYPE html>
 <html lang="uz">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080d20">
 <title>ZOKIROV SHOP</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#080d20;color:white;font-family:Arial,sans-serif}
-header{padding:22px 16px;background:#101a38;border-bottom:1px solid #24345e}
-.logo{font-size:25px;font-weight:900;color:#56a5ff}
-header p{color:#aab8d8;margin:7px 0 0;font-size:13px}
-main{padding:16px;max-width:650px;margin:auto}
-.balance{background:linear-gradient(120deg,#1749a9,#743ee0);padding:20px;border-radius:18px;margin-bottom:18px}
-.balance small{color:#d8e5ff}
-.balance h2{margin:8px 0;font-size:25px}
-h3{margin:22px 0 12px}
-.tabs{display:flex;gap:10px;margin-bottom:15px}
-.tabs button{flex:1;padding:13px;border:1px solid #34466e;background:#131e3b;color:white;border-radius:12px;font-weight:bold}
-.tabs button.active{background:#2768df;border-color:#5298ff}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-.item{background:#121c38;border:1px solid #26365e;border-radius:14px;padding:13px}
-.item h4{margin:4px 0 9px;font-size:15px}
-.price{color:#65adff;font-weight:bold;margin:8px 0}
-.item button,.checkout{width:100%;padding:11px;border:0;border-radius:10px;background:#2869e8;color:white;font-weight:bold}
-.item button:active,.checkout:active{opacity:.7}
-.cart{margin-top:22px;background:#111b36;padding:16px;border-radius:16px}
-.cartline{display:flex;justify-content:space-between;gap:8px;padding:9px 0;border-bottom:1px solid #293655;font-size:13px}
-.total{display:flex;justify-content:space-between;font-weight:bold;margin:16px 0}
-.empty{color:#aab8d8;font-size:14px}
-footer{text-align:center;color:#8998bb;padding:25px;font-size:12px}
+body{margin:0;background:#080d19;color:#f5f7ff;font-family:Arial,sans-serif;padding-bottom:100px}
+button,input{font:inherit}
+button{cursor:pointer}
+header{padding:25px 20px 15px}
+.top{display:flex;align-items:center;justify-content:space-between}
+.user{display:flex;align-items:center;gap:13px}
+.avatar{width:62px;height:62px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#368cff,#7540ef);font-size:30px}
+.muted{color:#929db8;font-size:13px}
+.username{font-size:23px;font-weight:bold;margin-top:4px}
+.round{width:54px;height:54px;border-radius:50%;border:1px solid #293451;background:#171e35;color:white;font-size:19px}
+.balance{margin:20px;background:#171d34;border:1px solid #293451;border-radius:28px;padding:22px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.balance h2{margin:7px 0;font-size:26px}
+.balance button,.primary{border:0;border-radius:18px;padding:15px 20px;background:linear-gradient(110deg,#398dff,#663ce9);color:white;font-weight:bold}
+.shortcuts{display:flex;gap:12px;margin:20px}
+.shortcuts button{flex:1;background:#171e32;color:#e1e7ff;border:1px solid #293451;border-radius:20px;padding:17px 5px;font-weight:bold}
+main{padding:0 20px;max-width:700px;margin:auto}
+.section-title{text-align:center;font-size:27px;font-weight:900;margin:36px 0 12px;color:#a8c7ff}
+.line{height:6px;width:130px;border-radius:9px;background:linear-gradient(90deg,#388eff,#8b40ff);margin:0 auto 30px}
+.tabs{display:flex;gap:10px;margin:18px 0}
+.tabs button{flex:1;padding:13px 6px;border-radius:13px;border:1px solid #293451;background:#171e32;color:white;font-weight:bold}
+.tabs button.active{background:linear-gradient(100deg,#367fff,#713fee);border:0}
+.products{display:grid;gap:12px}
+.product{display:flex;align-items:center;gap:13px;background:#171e32;border:1px solid #293451;border-radius:23px;padding:17px 14px}
+.product-icon{width:70px;height:60px;display:grid;place-items:center;font-size:39px;flex-shrink:0}
+.product-info{flex:1;min-width:0}
+.product-info b{font-size:17px}
+.product-info p{font-size:13px;color:#9aa7c1;margin:8px 0 0}
+.product button{border:0;border-radius:18px;padding:14px 17px;background:linear-gradient(110deg,#398dff,#663ce9);color:white;font-weight:bold}
+.panel{background:#171e32;border:1px solid #293451;border-radius:22px;padding:18px;margin:18px 0}
+.panel h3{margin:0 0 14px}
+.rowline{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid #2a3550}
+.rowline:last-child{border:0}
+.smallbtn{border:0;border-radius:10px;padding:9px 12px;background:#303e67;color:white}
+.danger{background:#85334b}
+input{width:100%;padding:14px;border-radius:12px;border:1px solid #34456c;background:#0e162b;color:white;margin:8px 0}
+.full{width:100%;margin-top:12px}
+.empty{text-align:center;color:#98a6c1;padding:20px 5px}
+.nav{position:fixed;z-index:5;bottom:10px;left:3%;width:94%;max-width:680px;left:50%;transform:translateX(-50%);background:#171e32;border:1px solid #34405e;border-radius:28px;display:flex;padding:8px}
+.nav button{flex:1;background:transparent;color:#98a6c1;border:0;padding:12px 2px;font-size:12px;font-weight:bold;border-radius:20px}
+.nav button span{display:block;font-size:23px;margin-bottom:6px}
+.nav button.active{background:linear-gradient(120deg,#398dff,#693fe9);color:white}
+.page{display:none}
+.page.active{display:block}
+.notice{font-size:12px;color:#9eabc6;line-height:1.6}
+.hidden{display:none!important}
+footer{text-align:center;color:#7887a5;font-size:12px;padding:30px}
 </style>
 </head>
 <body>
 <header>
- <div class="logo">ZOKIROV SHOP</div>
- <p>O‘yinlar uchun qulay va tezkor do‘kon</p>
+ <div class="top">
+  <div class="user">
+   <div class="avatar">Z</div>
+   <div><div class="muted">SALOM,</div><div class="username" id="hello">ZOKIROV.</div></div>
+  </div>
+  <div style="display:flex;gap:10px">
+   <button class="round" onclick="toggleTheme()">☾</button>
+   <button class="round" onclick="alert('Til: O‘zbekcha')">UZ</button>
+  </div>
+ </div>
 </header>
+
+<section class="balance">
+ <div><div class="muted">BALANS</div><h2 id="balance">0 So‘m</h2><div class="muted">1 SO‘M = 1 SO‘M</div></div>
+ <button onclick="showPage('profile')">＋ To‘ldirish</button>
+</section>
+
+<div class="shortcuts">
+ <button onclick="alert('Telegram manzili keyin ulanadi')">➤ Bizning telegram</button>
+ <button onclick="alert('Yordam: Telegram orqali bog‘lanish keyin ulanadi')">♧ Yordam</button>
+</div>
+
 <main>
- <section class="balance">
-  <small>DO‘KON</small>
-  <h2>Xush kelibsiz!</h2>
-  <small>Kerakli o‘yinni tanlang</small>
+ <section id="home" class="page active">
+  <div class="tabs">
+   <button id="ffTab" class="active" onclick="showGame('ff')">🔥 FREE FIRE</button>
+   <button id="pubgTab" onclick="showGame('pubg')">🎮 PUBG MOBILE</button>
+  </div>
+  <h2 class="section-title" id="gameTitle">FREE FIRE</h2>
+  <div class="line"></div>
+  <div class="products" id="products"></div>
  </section>
 
- <h3>O‘yinlar</h3>
- <div class="tabs">
-  <button id="ffTab" class="active" onclick="showGame('ff')">🔥 Free Fire</button>
-  <button id="pubgTab" onclick="showGame('pubg')">🎮 PUBG Mobile</button>
- </div>
+ <section id="cartPage" class="page">
+  <h2 class="section-title">SAVATCHA</h2><div class="line"></div>
+  <div class="panel">
+   <div id="cartItems"></div>
+   <div class="rowline"><b>Jami:</b><b id="cartTotal">0 so‘m</b></div>
+   <button class="primary full" onclick="checkout()">Buyurtmani tasdiqlash</button>
+  </div>
+ </section>
 
- <h3 id="gameTitle">Free Fire mahsulotlari</h3>
- <div class="grid" id="products"></div>
+ <section id="ordersPage" class="page">
+  <h2 class="section-title">BUYURTMALAR</h2><div class="line"></div>
+  <div class="panel" id="ordersList"></div>
+ </section>
 
- <section class="cart">
-  <h3>🛒 Savatcha</h3>
-  <div id="cartItems"><p class="empty">Savatcha hozircha bo‘sh.</p></div>
-  <div class="total"><span>Jami:</span><span id="total">0 so‘m</span></div>
-  <button class="checkout" onclick="order()">Buyurtmani ko‘rish</button>
+ <section id="profile" class="page">
+  <h2 class="section-title">PROFIL</h2><div class="line"></div>
+  <div class="panel">
+   <div class="user"><div class="avatar">Z</div><div><b id="profileName">ZOKIROV.</b><div class="muted">Foydalanuvchi</div></div></div>
+   <h3 style="margin-top:25px">Balansni to‘ldirish</h3>
+   <p class="notice">Bu demo versiyada haqiqiy pul qabul qilinmaydi. To‘lov tizimi keyin xavfsiz tarzda ulanadi.</p>
+   <input id="amount" type="number" placeholder="Summani kiriting">
+   <button class="primary full" onclick="topup()">So‘rov yuborish</button>
+  </div>
+  <div class="panel">
+   <h3>Profil ma’lumotlari</h3>
+   <input id="nameInput" placeholder="Ismingiz">
+   <button class="primary full" onclick="saveName()">Ismni saqlash</button>
+  </div>
+  <div class="panel">
+   <h3>Admin bo‘limi — demo</h3>
+   <p class="notice">Bu ochiq demo boshqaruv oynasi. Haqiqiy admin himoyasi server orqali qilinishi kerak.</p>
+   <input id="adminProduct" placeholder="Mahsulot nomi">
+   <input id="adminPrice" type="number" placeholder="Narxi (so‘m)">
+   <button class="primary full" onclick="addCustom()">Demo mahsulot qo‘shish</button>
+   <button class="smallbtn danger full" onclick="clearCustom()">Qo‘shilgan demo mahsulotlarni o‘chirish</button>
+  </div>
  </section>
 </main>
-<footer>© 2026 ZOKIROV SHOP</footer>
+
+<footer>ZOKIROV SHOP © 2026</footer>
+
+<nav class="nav">
+ <button id="navHome" class="active" onclick="showPage('home')"><span>⌂</span>Asosiy</button>
+ <button id="navCart" onclick="showPage('cartPage')"><span>🛒</span>Savat</button>
+ <button id="navOrders" onclick="showPage('ordersPage')"><span>◷</span>Buyurtmalar</button>
+ <button id="navProfile" onclick="showPage('profile')"><span>♙</span>Profil</button>
+</nav>
 
 <script>
-const ffProducts = [
- ["110 Almaz",11000],
- ["341 Almaz",32000],
- ["572 Almaz",52000],
- ["1 166 Almaz",104000],
- ["2 398 Almaz",208000],
- ["6 160 Almaz",525000],
- ["Weekly Lite",5000],
- ["Weekly Membership",21000],
- ["Monthly Membership",78000],
- ["Evo Access 3d",6000],
- ["Evo Access 7d",10000],
- ["Evo Access 30d",28000],
- ["Newbie Bundle",3000],
- ["Level Up 6",4000],
- ["Level Up 10",7000],
- ["Level Up 15",7000],
- ["Level Up 20",7000],
- ["Level Up 25",7000],
+const ffProducts=[
+ ["110 Almaz",11000],["341 Almaz",32000],["572 Almaz",52000],
+ ["1 166 Almaz",104000],["2 398 Almaz",208000],["6 160 Almaz",525000],
+ ["Weekly Lite",5000],["Weekly Membership",21000],
+ ["Monthly Membership",78000],["Evo Access 3d",6000],
+ ["Evo Access 7d",10000],["Evo Access 30d",28000],
+ ["Newbie Bundle",3000],["Level Up 6",4000],["Level Up 10",7000],
+ ["Level Up 15",7000],["Level Up 20",7000],["Level Up 25",7000],
  ["Level Up 30",10000]
 ];
-
-let cart=[];
+const pubgProducts=[
+ ["60 UC",null],["325 UC",null],["660 UC",null]
+];
+let cart=JSON.parse(localStorage.getItem("z_cart")||"[]");
+let orders=JSON.parse(localStorage.getItem("z_orders")||"[]");
+let custom=JSON.parse(localStorage.getItem("z_custom")||"[]");
 let game="ff";
+let username=localStorage.getItem("z_name")||"ZOKIROV.";
 
-function money(n){
- return n.toLocaleString("uz-UZ")+" so‘m";
-}
-
-function showGame(which){
- game=which;
- document.getElementById("ffTab").classList.toggle("active",which==="ff");
- document.getElementById("pubgTab").classList.toggle("active",which==="pubg");
- document.getElementById("gameTitle").textContent=
-  which==="ff"?"Free Fire mahsulotlari":"PUBG Mobile";
- const area=document.getElementById("products");
- if(which==="ff"){
-  area.innerHTML=ffProducts.map((p,i)=>`
-   <div class="item">
-    <h4>💎 ${p[0]}</h4>
-    <div class="price">${money(p[1])}</div>
-    <button onclick="add(${i})">Savatchaga qo‘shish</button>
-   </div>`).join("");
- }else{
-  area.innerHTML=`
-   <div class="item" style="grid-column:1/-1">
-    <h4>🎮 PUBG Mobile UC</h4>
-    <p class="empty">PUBG narxlari tasdiqlangach mahsulotlar shu yerga qo‘shiladi.</p>
-   </div>`;
+function money(n){return Number(n).toLocaleString("uz-UZ")+" so‘m"}
+function save(){localStorage.setItem("z_cart",JSON.stringify(cart));localStorage.setItem("z_orders",JSON.stringify(orders));localStorage.setItem("z_custom",JSON.stringify(custom))}
+function showGame(g){
+ game=g;
+ document.getElementById("ffTab").classList.toggle("active",g==="ff");
+ document.getElementById("pubgTab").classList.toggle("active",g==="pubg");
+ document.getElementById("gameTitle").textContent=g==="ff"?"FREE FIRE":"PUBG MOBILE";
+ let list=g==="ff"?ffProducts:pubgProducts;
+ let html=list.map((p,i)=>`
+ <div class="product">
+  <div class="product-icon">${g==="ff"?"💎":"🪙"}</div>
+  <div class="product-info"><b>${p[0]}</b><p>${p[1]===null?"Narx: Admin belgilaydi":money(p[1])}</p></div>
+  <button onclick="addProduct('${g}',${i})">Tanlash</button>
+ </div>`).join("");
+ if(g==="ff"&&custom.length){
+  html+=custom.map((p,i)=>`<div class="product"><div class="product-icon">💎</div><div class="product-info"><b>${p.name}</b><p>${money(p.price)}</p></div><button onclick="addCustomProduct(${i})">Tanlash</button></div>`).join("");
  }
+ document.getElementById("products").innerHTML=html;
 }
-
-function add(i){
- cart.push({name:ffProducts[i][0],price:ffProducts[i][1]});
- renderCart();
+function addProduct(g,i){
+ let p=(g==="ff"?ffProducts:pubgProducts)[i];
+ cart.push({name:(g==="ff"?"Free Fire — ":"PUBG — ")+p[0],price:p[1]});
+ save();renderCart();alert("Savatchaga qo‘shildi!");
 }
-
-function removeItem(i){
- cart.splice(i,1);
- renderCart();
+function addCustomProduct(i){
+ let p=custom[i];cart.push({name:p.name,price:p.price});save();renderCart();alert("Savatchaga qo‘shildi!");
 }
-
 function renderCart(){
- const area=document.getElementById("cartItems");
- if(!cart.length){
-  area.innerHTML='<p class="empty">Savatcha hozircha bo‘sh.</p>';
- }else{
-  area.innerHTML=cart.map((p,i)=>`
-   <div class="cartline">
-    <span>${p.name}</span>
-    <span>${money(p.price)}
-    <button onclick="removeItem(${i})" style="background:#a83248;color:white;border:0;border-radius:5px">×</button></span>
-   </div>`).join("");
- }
- document.getElementById("total").textContent=
-  money(cart.reduce((s,p)=>s+p.price,0));
+ let area=document.getElementById("cartItems");
+ if(!cart.length)area.innerHTML='<div class="empty">Savatcha hozircha bo‘sh</div>';
+ else area.innerHTML=cart.map((p,i)=>`<div class="rowline"><div>${p.name}<div class="muted">${p.price===null?"Narx kelishiladi":money(p.price)}</div></div><button class="smallbtn danger" onclick="removeCart(${i})">O‘chirish</button></div>`).join("");
+ let total=cart.reduce((s,p)=>s+(Number(p.price)||0),0);
+ document.getElementById("cartTotal").textContent=money(total);
 }
-
-function order(){
- if(!cart.length){
-  alert("Avval mahsulot tanlang!");
-  return;
- }
- alert("Demo savatcha. Buyurtma yuborish tizimi keyingi bosqichda ulanadi.");
+function removeCart(i){cart.splice(i,1);save();renderCart()}
+function checkout(){
+ if(!cart.length){alert("Savatcha bo‘sh!");return}
+ if(cart.some(p=>p.price===null)){alert("PUBG mahsulotlari narxi hali tasdiqlanmagan. Narxni admin bilan aniqlash kerak.");return}
+ let order={id:Date.now(),items:cart,total:cart.reduce((s,p)=>s+p.price,0),date:new Date().toLocaleString("uz-UZ"),status:"Demo — yuborilmagan"};
+ orders.unshift(order);cart=[];save();renderCart();renderOrders();showPage("ordersPage");
+ alert("Demo buyurtma saqlandi. Hali Telegramga yuborilmaydi.");
 }
-
-showGame("ff");
+function renderOrders(){
+ let el=document.getElementById("ordersList");
+ if(!orders.length){el.innerHTML='<div class="empty">Hozircha buyurtmalar yo‘q</div>';return}
+ el.innerHTML=orders.map(o=>`<div class="rowline"><div><b>Buyurtma #${String(o.id).slice(-6)}</b><div class="muted">${o.date}</div><div class="muted">${o.items.map(p=>p.name).join(", ")}</div><b>${money(o.total)}</b><div class="muted">${o.status}</div></div></div>`).join("");
+}
+function showPage(id){
+ document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+ document.getElementById(id).classList.add("active");
+ ["Home","Cart","Orders","Profile"].forEach(x=>document.getElementById("nav"+x).classList.remove("active"));
+ let map={home:"navHome",cartPage:"navCart",ordersPage:"navOrders",profile:"navProfile"};
+ document.getElementById(map[id]).classList.add("active");
+ if(id==="cartPage")renderCart();
+ if(id==="ordersPage")renderOrders();
+}
+function saveName(){
+ let n=document.getElementById("nameInput").value.trim();
+ if(!n){alert("Ism kiriting");return}
+ username=n;localStorage.setItem("z_name",n);updateName();alert("Ism saqlandi");
+}
+function updateName(){
+ document.getElementById("hello").textContent=username;
+ document.getElementById("profileName").textContent=username;
+}
+function topup(){
+ let n=Number(document.getElementById("amount").value);
+ if(!n||n<1){alert("Summani to‘g‘ri kiriting");return}
+ alert("Demo: balans to‘ldirish so‘rovi. Haqiqiy to‘lov ulanmagan.");
+}
+function addCustom(){
+ let name=document.getElementById("adminProduct").value.trim();
+ let price=Number(document.getElementById("adminPrice").value);
+ if(!name||!price||price<1){alert("Mahsulot nomi va narxini kiriting");return}
+ custom.push({name,price});save();showGame(game);alert("Demo mahsulot qo‘shildi");
+}
+function clearCustom(){custom=[];save();showGame(game);alert("Demo mahsulotlar o‘chirildi")}
+function toggleTheme(){document.body.style.background=document.body.style.background==="#111a30"?"#080d19":"#111a30"}
+updateName();showGame("ff");renderCart();renderOrders();
 </script>
 </body>
 </html>
-
-
-
