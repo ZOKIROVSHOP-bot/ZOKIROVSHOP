@@ -241,6 +241,70 @@ function addCustom(){
 function clearCustom(){custom=[];save();showGame(game);alert("Demo mahsulotlar o‘chirildi")}
 function toggleTheme(){document.body.style.background=document.body.style.background==="#111a30"?"#080d19":"#111a30"}
 updateName();showGame("ff");renderCart();renderOrders();
+<!-- HUMO TO'LOV TUGMASI -->
+<div class="payment-box">
+  <h3>To‘lov usuli</h3>
+  <button id="humoPayBtn" onclick="startHumoPayment()">
+    💳 HUMO orqali to‘lash
+  </button>
+  <p id="paymentStatus"></p>
+</div>
+
+<style>
+.payment-box {
+  background: #17243d;
+  padding: 18px;
+  border-radius: 16px;
+  margin: 20px 0;
+  color: white;
+  text-align: center;
+}
+#humoPayBtn {
+  width: 100%;
+  padding: 15px;
+  border: 0;
+  border-radius: 12px;
+  background: #287cff;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+</style>
+
+<script>
+async function startHumoPayment() {
+  const status = document.getElementById("paymentStatus");
+  status.textContent = "To‘lov tizimiga ulanmoqda...";
+
+  try {
+    // Bu manzilni Hamkorbank bergan haqiqiy
+    // backend manziliga almashtirish kerak.
+    const response = await fetch("/api/create-payment", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        orderId: "ORDER-" + Date.now()
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error("Payment server sozlanmagan");
+    }
+
+    const data = await response.json();
+
+    if (!9860 0966 0179 9313)
+ 
+    }
+
+    window.location.href = 9860 0966 0179 9313.paymentUrl;
+  } catch (error) {
+    status.textContent =
+      "ulangan.";
+  }
+}
+</script>
+
 </script>
 </body>
 </html>
