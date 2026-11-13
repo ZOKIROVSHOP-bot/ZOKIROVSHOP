@@ -4,361 +4,155 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#090d18">
 <title>ZOKIROV SHOP</title>
-<script src="https://telegram.org/js/telegram-web-app.js"></script>
-
 <style>
 *{box-sizing:border-box}
-body{
- margin:0;background:#090d18;color:#fff;
- font-family:Arial,sans-serif;padding-bottom:105px;
-}
-button{font-family:inherit;cursor:pointer}
-header{padding:22px 20px 12px}
-.profile{display:flex;align-items:center;gap:12px}
-.avatar{
- width:58px;height:58px;border-radius:50%;
- background:linear-gradient(135deg,#277cff,#873eff);
- display:grid;place-items:center;font-size:27px;
- border:2px solid #485dba;
-}
-.user{flex:1}
-.user small{color:#aab5cc}
-.user h2{margin:4px 0;font-size:21px}
-.round{
- background:#171c30;color:white;border:1px solid #303858;
- border-radius:50%;width:54px;height:54px;font-size:23px;
-}
-.balance{
- margin:12px 18px;padding:20px;
- border-radius:28px;background:linear-gradient(120deg,#171e35,#15172c);
- border:1px solid #303858;display:flex;
- align-items:center;gap:12px;
-}
-.money-icon{
- width:55px;height:55px;border-radius:17px;
- background:#242a50;display:grid;place-items:center;
- font-size:25px;
-}
-.bal-info{flex:1}
-.bal-info small{color:#9eabc5;font-weight:bold}
-.bal-info h2{margin:5px 0}
-.bal-info p{margin:0;color:#8391b0;font-size:11px}
-.primary{
- border:0;border-radius:18px;padding:17px 18px;
- background:linear-gradient(110deg,#3989ff,#583ce8);
- color:white;font-weight:bold;font-size:15px;
- box-shadow:0 5px 20px #2859d866;
-}
-.links{display:flex;gap:10px;margin:16px 18px}
-.links button{
- flex:1;padding:18px 5px;border-radius:20px;
- color:#dce5ff;background:#171d2d;
- border:1px solid #30374c;font-weight:bold;
-}
-.banner{
- margin:16px 18px;height:205px;border-radius:28px;
- overflow:hidden;position:relative;
- display:flex;align-items:center;
- background:linear-gradient(120deg,#101d3c,#32205c,#111a30);
- border:1px solid #303858;
-}
-.banner:before{
- content:"🎮";position:absolute;right:12px;bottom:10px;
- font-size:100px;opacity:.45;
-}
-.banner-content{position:relative;z-index:1;padding:20px}
-.banner small{color:#7bb5ff;font-weight:bold}
-.banner h1{font-size:23px;line-height:1.3;max-width:280px}
-.banner p{color:#c2cce3;font-size:12px}
-.section-title{
- text-align:center;margin:24px 0 8px;
- font-size:29px;color:#a5c5ff;
-}
-.line{
- width:85px;height:5px;border-radius:10px;
- background:linear-gradient(90deg,#3989ff,#7548ff);
- margin:14px auto 28px;
-}
-.games{
- display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
- gap:14px;padding:0 18px;
-}
-.game{
- height:190px;border-radius:28px;overflow:hidden;
- position:relative;border:1px solid #38425c;
- display:flex;align-items:center;justify-content:center;
- text-align:center;padding:12px;
-}
-.game:after{
- content:"";position:absolute;inset:0;
- background:linear-gradient(0deg,#080d1beF,transparent 85%);
-}
-.ff{background:radial-gradient(circle at 50% 25%,#e39c43,#47213b 70%,#101629)}
-.fc{background:radial-gradient(circle at 50% 25%,#5aa9e9,#263c75 65%,#11172c)}
-.pubg{background:radial-gradient(circle at 50% 25%,#d2a35c,#39495d 65%,#101629)}
-.game-content{position:relative;z-index:1;margin-top:auto}
-.game-icon{font-size:48px}
-.game h3{font-size:17px;margin:8px 0}
-.game p{
- display:inline-block;padding:7px 12px;
- background:#26324d;border-radius:20px;
- font-size:10px;letter-spacing:1px;
-}
-.products{padding:0 18px}
-.product{
- background:#171e31;border:1px solid #303858;
- border-radius:18px;padding:16px;margin-bottom:12px;
- display:flex;align-items:center;gap:12px;
-}
-.product .emoji{font-size:38px}
-.product-info{flex:1}
-.product-info h3{margin:0 0 7px;font-size:16px}
-.product-info p{margin:0;color:#9ba9c2;font-size:12px}
-.product button{width:auto;padding:12px 17px}
-.cart-area{padding:18px}
-.cart-box{
- background:#171e31;border:1px solid #303858;
- border-radius:24px;padding:20px;
-}
-.cart-box h2{margin-top:0}
-.cart-item{padding:10px 0;border-bottom:1px solid #303858}
-.total{font-size:21px;font-weight:bold;margin:20px 0}
-.page{display:none}
-.page.active{display:block}
-.bottom{
- position:fixed;bottom:10px;left:14px;right:14px;
- z-index:10;background:#171e31ee;
- border:1px solid #414a64;border-radius:30px;
- display:flex;justify-content:space-around;
- padding:10px 4px;
- backdrop-filter:blur(15px);
-}
-.nav-btn{
- border:0;background:transparent;color:#8794af;
- font-size:11px;font-weight:bold;padding:9px 7px;
- border-radius:20px;flex:1;
-}
-.nav-btn span{display:block;font-size:23px;margin-bottom:5px}
-.nav-btn.active{
- color:white;background:linear-gradient(130deg,#347dff,#6045e8);
-}
-.notice{color:#9ba9c2;text-align:center;font-size:12px;padding:15px}
+body{margin:0;background:#080d20;color:white;font-family:Arial,sans-serif}
+header{padding:22px 16px;background:#101a38;border-bottom:1px solid #24345e}
+.logo{font-size:25px;font-weight:900;color:#56a5ff}
+header p{color:#aab8d8;margin:7px 0 0;font-size:13px}
+main{padding:16px;max-width:650px;margin:auto}
+.balance{background:linear-gradient(120deg,#1749a9,#743ee0);padding:20px;border-radius:18px;margin-bottom:18px}
+.balance small{color:#d8e5ff}
+.balance h2{margin:8px 0;font-size:25px}
+h3{margin:22px 0 12px}
+.tabs{display:flex;gap:10px;margin-bottom:15px}
+.tabs button{flex:1;padding:13px;border:1px solid #34466e;background:#131e3b;color:white;border-radius:12px;font-weight:bold}
+.tabs button.active{background:#2768df;border-color:#5298ff}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.item{background:#121c38;border:1px solid #26365e;border-radius:14px;padding:13px}
+.item h4{margin:4px 0 9px;font-size:15px}
+.price{color:#65adff;font-weight:bold;margin:8px 0}
+.item button,.checkout{width:100%;padding:11px;border:0;border-radius:10px;background:#2869e8;color:white;font-weight:bold}
+.item button:active,.checkout:active{opacity:.7}
+.cart{margin-top:22px;background:#111b36;padding:16px;border-radius:16px}
+.cartline{display:flex;justify-content:space-between;gap:8px;padding:9px 0;border-bottom:1px solid #293655;font-size:13px}
+.total{display:flex;justify-content:space-between;font-weight:bold;margin:16px 0}
+.empty{color:#aab8d8;font-size:14px}
+footer{text-align:center;color:#8998bb;padding:25px;font-size:12px}
 </style>
 </head>
-
 <body>
-
 <header>
- <div class="profile">
-  <div class="avatar">Z</div>
-  <div class="user">
-   <small>SALOM,</small>
-   <h2 id="username">ZOKIROV.</h2>
-  </div>
-  <button class="round" onclick="toggleTheme()">☾</button>
-  <button class="round" onclick="alert('Til: O‘zbekcha')">UZ</button>
- </div>
+ <div class="logo">ZOKIROV SHOP</div>
+ <p>O‘yinlar uchun qulay va tezkor do‘kon</p>
 </header>
+<main>
+ <section class="balance">
+  <small>DO‘KON</small>
+  <h2>Xush kelibsiz!</h2>
+  <small>Kerakli o‘yinni tanlang</small>
+ </section>
 
-<div class="balance">
- <div class="money-icon">💳</div>
- <div class="bal-info">
-  <small>BALANS</small>
-  <h2>0 So‘m</h2>
-  <p>1 SO‘M = 1 SO‘M</p>
- </div>
- <button class="primary" onclick="alert('To‘lov tizimi keyingi bosqichda ulanadi')">
-  ＋ To‘ldirish
- </button>
-</div>
-
-<div class="links">
- <button onclick="window.open('https://t.me/','_blank')">➤ Bizning telegram</button>
- <button onclick="alert('Yordam uchun administrator bilan bog‘laning')">♧ Yordam</button>
-</div>
-
-<div id="home" class="page active">
- <div class="banner">
-  <div class="banner-content">
-   <small>★ ZOKIROV SHOP</small>
-   <h1>O‘YINLAR UCHUN TEZKOR VA ARZON DONAT!</h1>
-   <p>ISHONCHLI DONAT DO‘KONI</p>
-  </div>
+ <h3>O‘yinlar</h3>
+ <div class="tabs">
+  <button id="ffTab" class="active" onclick="showGame('ff')">🔥 Free Fire</button>
+  <button id="pubgTab" onclick="showGame('pubg')">🎮 PUBG Mobile</button>
  </div>
 
- <h2 class="section-title">KATEGORIYALAR</h2>
- <div class="line"></div>
+ <h3 id="gameTitle">Free Fire mahsulotlari</h3>
+ <div class="grid" id="products"></div>
 
- <div class="games">
-  <div class="game ff" onclick="openGame('Free Fire')">
-   <div class="game-content">
-    <div class="game-icon">💎</div>
-    <h3>FREE FIRE</h3>
-    <p>DIAMONDS & PACKS</p>
-   </div>
-  </div>
-
-  <div class="game fc" onclick="openGame('FC Mobile')">
-   <div class="game-content">
-    <div class="game-icon">⚽</div>
-    <h3>FC MOBILE</h3>
-    <p>FC POINTS & PACKS</p>
-   </div>
-  </div>
-
-  <div class="game pubg" onclick="openGame('PUBG Mobile')">
-   <div class="game-content">
-    <div class="game-icon">🎮</div>
-    <h3>PUBG MOBILE</h3>
-    <p>UC & PACKS</p>
-   </div>
-  </div>
- </div>
-</div>
-
-<div id="shop" class="page">
- <h2 class="section-title" id="gameTitle">MAHSULOTLAR</h2>
- <div class="line"></div>
- <div class="products" id="productList"></div>
-</div>
-
-<div id="basket" class="page">
- <div class="cart-area">
-  <div class="cart-box">
-   <h2>🛒 SAVAT</h2>
-   <div id="cartItems">Savatcha hozircha bo‘sh.</div>
-   <div class="total" id="total">Jami: 0 so‘m</div>
-   <button class="primary" style="width:100%" onclick="order()">
-    Buyurtma berish
-   </button>
-  </div>
- </div>
-</div>
-
-<div id="history" class="page">
- <h2 class="section-title">BUYURTMALAR TARIXI</h2>
- <p class="notice">Hozircha buyurtmalar mavjud emas.</p>
-</div>
-
-<div id="profile" class="page">
- <h2 class="section-title">PROFIL</h2>
- <p class="notice">ZOKIROV SHOP mijoz profili</p>
-</div>
-
-<div class="bottom">
- <button class="nav-btn active" onclick="navigate('home',this)">
-  <span>⌂</span>Asosiy
- </button>
- <button class="nav-btn" onclick="navigate('basket',this)">
-  <span>🛒</span>Savat
- </button>
- <button class="nav-btn" onclick="navigate('history',this)">
-  <span>◷</span>Buyurtmalar
- </button>
- <button class="nav-btn" onclick="navigate('profile',this)">
-  <span>♙</span>Profil
- </button>
-</div>
+ <section class="cart">
+  <h3>🛒 Savatcha</h3>
+  <div id="cartItems"><p class="empty">Savatcha hozircha bo‘sh.</p></div>
+  <div class="total"><span>Jami:</span><span id="total">0 so‘m</span></div>
+  <button class="checkout" onclick="order()">Buyurtmani ko‘rish</button>
+ </section>
+</main>
+<footer>© 2026 ZOKIROV SHOP</footer>
 
 <script>
-const tg=window.Telegram?.WebApp;
-if(tg){
- tg.ready();
- tg.expand();
- const user=tg.initDataUnsafe?.user;
- if(user){
-  document.getElementById('username').textContent=
-  (user.first_name||'ZOKIROV').toUpperCase()+'.';
+const ffProducts = [
+ ["110 Almaz",11000],
+ ["341 Almaz",32000],
+ ["572 Almaz",52000],
+ ["1 166 Almaz",104000],
+ ["2 398 Almaz",208000],
+ ["6 160 Almaz",525000],
+ ["Weekly Lite",5000],
+ ["Weekly Membership",21000],
+ ["Monthly Membership",78000],
+ ["Evo Access 3d",6000],
+ ["Evo Access 7d",10000],
+ ["Evo Access 30d",28000],
+ ["Newbie Bundle",3000],
+ ["Level Up 6",4000],
+ ["Level Up 10",7000],
+ ["Level Up 15",7000],
+ ["Level Up 20",7000],
+ ["Level Up 25",7000],
+ ["Level Up 30",10000]
+];
+
+let cart=[];
+let game="ff";
+
+function money(n){
+ return n.toLocaleString("uz-UZ")+" so‘m";
+}
+
+function showGame(which){
+ game=which;
+ document.getElementById("ffTab").classList.toggle("active",which==="ff");
+ document.getElementById("pubgTab").classList.toggle("active",which==="pubg");
+ document.getElementById("gameTitle").textContent=
+  which==="ff"?"Free Fire mahsulotlari":"PUBG Mobile";
+ const area=document.getElementById("products");
+ if(which==="ff"){
+  area.innerHTML=ffProducts.map((p,i)=>`
+   <div class="item">
+    <h4>💎 ${p[0]}</h4>
+    <div class="price">${money(p[1])}</div>
+    <button onclick="add(${i})">Savatchaga qo‘shish</button>
+   </div>`).join("");
+ }else{
+  area.innerHTML=`
+   <div class="item" style="grid-column:1/-1">
+    <h4>🎮 PUBG Mobile UC</h4>
+    <p class="empty">PUBG narxlari tasdiqlangach mahsulotlar shu yerga qo‘shiladi.</p>
+   </div>`;
  }
 }
 
-let cart=[];
-let currentGame='';
-
-const products={
- 'Free Fire':[
-  {name:'100 Diamonds',price:0,icon:'💎'},
-  {name:'310 Diamonds',price:0,icon:'💎'},
-  {name:'520 Diamonds',price:0,icon:'💎'}
- ],
- 'FC Mobile':[
-  {name:'FC Points paket',price:0,icon:'⚽'},
-  {name:'FC Points katta paket',price:0,icon:'🏆'}
- ],
- 'PUBG Mobile':[
-  {name:'60 UC',price:0,icon:'🪙'},
-  {name:'325 UC',price:0,icon:'🪙'},
-  {name:'660 UC',price:0,icon:'🪙'}
- ]
-};
-
-function navigate(id,btn){
- document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
- document.getElementById(id).classList.add('active');
- document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
- if(btn)btn.classList.add('active');
- window.scrollTo(0,0);
-}
-
-function openGame(game){
- currentGame=game;
- document.getElementById('gameTitle').textContent=game.toUpperCase();
- let html='';
- products[game].forEach((p,i)=>{
- html+=`<div class="product">
- <div class="emoji">${p.icon}</div>
- <div class="product-info">
- <h3>${p.name}</h3>
- <p>Narx: Admin belgilaydi</p>
- </div>
- <button class="primary" onclick="addCart(${i})">Tanlash</button>
- </div>`;
- });
- document.getElementById('productList').innerHTML=html;
- document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
- document.getElementById('shop').classList.add('active');
- window.scrollTo(0,0);
-}
-
-function addCart(i){
- const p=products[currentGame][i];
- cart.push({...p,game:currentGame});
+function add(i){
+ cart.push({name:ffProducts[i][0],price:ffProducts[i][1]});
  renderCart();
- alert(p.name+' savatga qo‘shildi!');
 }
 
-function renderCart(){
- let html='',sum=0;
- cart.forEach((p,i)=>{
- sum+=p.price;
- html+=`<div class="cart-item">${p.icon} ${p.name}
- <button onclick="removeCart(${i})" style="float:right;width:auto;padding:5px 10px;background:#813d54;color:white;border:0;border-radius:8px">✕</button>
- </div>`;
- });
- document.getElementById('cartItems').innerHTML=html||'Savatcha hozircha bo‘sh.';
- document.getElementById('total').textContent='Jami: '+sum.toLocaleString('uz-UZ')+' so‘m';
-}
-
-function removeCart(i){
+function removeItem(i){
  cart.splice(i,1);
  renderCart();
 }
 
-function order(){
+function renderCart(){
+ const area=document.getElementById("cartItems");
  if(!cart.length){
-  alert('Avval mahsulot tanlang!');
-  return;
+  area.innerHTML='<p class="empty">Savatcha hozircha bo‘sh.</p>';
+ }else{
+  area.innerHTML=cart.map((p,i)=>`
+   <div class="cartline">
+    <span>${p.name}</span>
+    <span>${money(p.price)}
+    <button onclick="removeItem(${i})" style="background:#a83248;color:white;border:0;border-radius:5px">×</button></span>
+   </div>`).join("");
  }
- alert('Buyurtma yuborish tizimi keyingi bosqichda ulanadi.');
+ document.getElementById("total").textContent=
+  money(cart.reduce((s,p)=>s+p.price,0));
 }
 
-function toggleTheme(){
- alert('ZOKIROV SHOP tungi rejimda ishlayapti.');
+function order(){
+ if(!cart.length){
+  alert("Avval mahsulot tanlang!");
+  return;
+ }
+ alert("Demo savatcha. Buyurtma yuborish tizimi keyingi bosqichda ulanadi.");
 }
+
+showGame("ff");
 </script>
 </body>
 </html>
+
 
 
