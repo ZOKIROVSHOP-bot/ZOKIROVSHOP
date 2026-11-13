@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZOKIROV SHOP</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:Arial,sans-serif;
+ background:#f4f6fa;
+ color:#172033;
+}
+header{
+ background:#111827;
+ color:white;
+ padding:24px 18px;
+ border-radius:0 0 22px 22px;
+}
+header h1{margin:0;font-size:27px}
+header p{color:#cbd5e1;margin-bottom:0}
+main{padding:18px}
+h2{font-size:20px}
+.products{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:12px;
+}
+.product{
+ background:white;
+ padding:14px;
+ border-radius:16px;
+ box-shadow:0 3px 12px #0000000c;
+}
+.photo{
+ background:#e9eef6;
+ height:105px;
+ border-radius:12px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:42px;
+}
+.product h3{font-size:15px}
+.price{color:#2563eb;font-weight:bold}
+button{
+ border:0;
+ border-radius:10px;
+ padding:11px;
+ background:#2563eb;
+ color:white;
+ width:100%;
+ font-weight:bold;
+}
+.cart{
+ background:white;
+ margin-top:20px;
+ padding:16px;
+ border-radius:16px;
+}
+#items{font-size:14px}
+footer{
+ text-align:center;
+ padding:20px;
+ color:#64748b;
+ font-size:12px;
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>ZOKIROV SHOP 🛍️</h1>
+<p>Onlayn do‘konimizga xush kelibsiz!</p>
+</header>
+
+<main>
+<h2>🔥 Mahsulotlar</h2>
+
+<div class="products" id="products"></div>
+
+<div class="cart">
+<h2>🛒 Savatcha</h2>
+<div id="items">Savatcha hozircha bo‘sh.</div>
+<h3 id="total">Jami: 0 so‘m</h3>
+<button onclick="checkout()">Buyurtma berish</button>
+</div>
+</main>
+
+<footer>
+© 2026 ZOKIROV SHOP
+</footer>
+
+<script>
+const tg = window.Telegram.WebApp;
+tg.ready();
+tg.expand();
+
+const products = [
+ {name:"Mahsulot 1",price:50000,icon:"🎧"},
+ {name:"Mahsulot 2",price:75000,icon:"⌚"},
+ {name:"Mahsulot 3",price:40000,icon:"🎒"},
+ {name:"Mahsulot 4",price:90000,icon:"👟"}
+];
+
+let cart=[];
+
+function renderProducts(){
+ document.getElementById("products").innerHTML=
+ products.map((p,i)=>`
+ <div class="product">
+ <div class="photo">${p.icon}</div>
+ <h3>${p.name}</h3>
+ <p class="price">${p.price.toLocaleString("uz-UZ")} so‘m</p>
+ <button onclick="add(${i})">Savatga qo‘shish</button>
+ </div>`).join("");
+}
+
+function add(i){
+ cart.push(products[i]);
+ renderCart();
+}
+
+function renderCart(){
+ let total=0;
+ document.getElementById("items").innerHTML=
+ cart.length ? cart.map(p=>{
+ total+=p.price;
+ return `<p>${p.name} — ${p.price.toLocaleString("uz-UZ")} so‘m</p>`;
+ }).join("") : "Savatcha hozircha bo‘sh.";
+
+ document.getElementById("total").innerText=
+ "Jami: "+total.toLocaleString("uz-UZ")+" so‘m";
+}
+
+function checkout(){
+ if(cart.length===0){
+ alert("Avval mahsulot tanlang!");
+ return;
+ }
+ alert("Savatchangiz tayyor! Buyurtma tizimini keyingi bosqichda ulaymiz.");
+}
+
+renderProducts();
+</script>
+</body>
+</html>
